@@ -17,6 +17,9 @@ public class AlgorithmLearn {
 //            }
 //        }
 //        System.out.println("yesOrNo:"+ solution.Find2(target,array));
+
+//    ****************2******************
+//    将空格替换为%20
         Scanner input=new Scanner(System.in);
         String s=input.nextLine();
         System.out.println(solution.replaceSpace(s));
