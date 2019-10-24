@@ -92,7 +92,9 @@
       <workItem from="1569499899957" duration="82000" />
       <workItem from="1569549347436" duration="717000" />
       <workItem from="1571814152731" duration="4529000" />
-      <workItem from="1571890086377" duration="286000" />
+      <workItem from="1571890086377" duration="317000" />
+      <workItem from="1571901541064" duration="4431000" />
+      <workItem from="1571921270982" duration="6499000" />
     </task>
     <task id="LOCAL-00001" summary="第二次提交">
       <created>1569221333325</created>
@@ -108,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571814844194</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="第五次提交">
+      <created>1571890385965</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571890385969</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +141,7 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="第二次提交" />
     <MESSAGE value="第四次提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="第四次提交" />
+    <MESSAGE value="第五次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="第五次提交" />
   </component>
 </project>

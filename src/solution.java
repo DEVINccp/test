@@ -244,4 +244,47 @@ public class solution {
         }
           return count;
     }
+
+//    *********************12**********************
+//    给定一个double类型的浮点数base和int类型的整数exponent。
+//    求base的exponent次方。保证base和exponent不同时为0
+    public double Power(double base, int exponent) {
+        double result=1.0;
+        if(base==0.0) return 0.0;
+        if(exponent==0) return result;
+        int tem=exponent>0?exponent:-exponent;
+        while(tem!=0)
+        {
+            result=result*base;
+            tem--;
+        }
+        return exponent>0?result:1/result;
+    }
+
+//    *********************12**********************
+//    输入一个整数数组，实现一个函数来调整该数组中数字的顺序，
+//    使得所有的奇数位于数组的前半部分，所有的偶数位于数组的
+//    后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+    public void reOrderArray(int [] array) {
+        int len=array.length;
+        int oddIndex=0;
+        int evenIndex=0;
+        for(int i=0;i<len;i++)
+        {
+            if(array[i]%2==1)
+            {
+                int tem=array[i];
+                for(int j=i;j>oddIndex;j--)
+                {
+                    array[j]=array[j-1];
+                }
+                array[oddIndex]=tem;
+                oddIndex++;
+            }
+        }
+        for(int i=0;i<len;i++)
+        {
+            System.out.println(array[i]+" | ");
+        }
+    }
 }
