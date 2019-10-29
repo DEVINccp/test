@@ -1,3 +1,5 @@
+import sun.reflect.generics.tree.Tree;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
@@ -45,13 +47,6 @@ public class solution {
 
     //*************3***************
     //输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
-    public class ListNode{
-      int val;
-      ListNode next=null;
-      ListNode(int val){
-          this.val=val;
-        }
-    };
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList<Integer> list=new ArrayList<>();
         ListNode tmp=listNode;
@@ -286,5 +281,238 @@ public class solution {
         {
             System.out.println(array[i]+" | ");
         }
+    }
+
+//    *********************13**********************
+//    输入一个链表，输出该链表中倒数第k个结点。
+    public ListNode FindKthToTail(ListNode head, int k){
+        ListNode p=head,q=head;
+        int count=0;
+        for(;p!=null;count++)
+        {
+            if(count>=k)
+                q=q.next;
+            p=p.next;
+        }
+        return count<k?null:q;
+    }
+
+//    *********************14**********************
+//    输入一个链表，反转链表后，输出新链表的表头。
+    public ListNode ReverseList(ListNode head) {
+        ListNode pre=null,nex;
+        if(head==null||head.next==null){
+            return head;
+        }
+        while(head.next!=null)
+        {
+            nex=head.next;
+            head.next=pre;
+            pre=head;
+            head=nex;
+        }
+        head.next=pre;
+        return head;
+    }
+
+//    *********************14**********************
+//    输入两个单调递增的链表，输出两个链表合成后的链表，
+//    当然我们需要合成后的链表满足单调不减规则。
+    public ListNode Merge(ListNode list1,ListNode list2) {
+        if(list1==null) return list2;
+        if(list2==null) return list1;
+        ListNode pre=list1;
+        ListNode nex=list1.next;
+        ListNode p=list2;
+        while(p!=null&&nex!=null)
+        {
+            System.out.println(pre.val);
+            if(nex.val>=p.val)
+            {
+                pre.next=p;
+                ListNode pNext=p.next;
+                p.next=nex;
+                p=pNext;
+                pre=pre.next;
+            }
+            else{
+                pre=pre.next;
+                nex=nex.next;
+            }
+        }
+        if(p!=null&&nex==null)
+        {
+            pre.next=p;
+        }
+        return list1;
+    }
+    //递归解法
+    public ListNode Merge1(ListNode list1,ListNode list2) {
+        if(list1==null) return list2;
+        if(list2==null) return list1;
+        if(list1.val<list2.val)
+        {
+            list1.next=Merge1(list1.next,list2);
+            return list1;
+        }
+        else
+        {
+            list2.next=Merge1(list1,list2.next);
+            return list2;
+        }
+    }
+
+//    *********************14**********************
+//    输入两棵二叉树A，B，判断B是不是A的子结构。
+//    我们约定空树不是任意一个树的子结构
+    public boolean judge(TreeNode root1,TreeNode root2)
+    {
+        if(root2==null) return true;
+        if(root1==null) return false;
+        if(root1.val==root2.val)
+            return judge(root1.left,root2.left)&&judge(root1.right,root2.right);
+        return false;
+    }
+    public boolean HasSubtree(TreeNode root1,TreeNode root2){
+        if(root1==null||root2==null) return false;
+        if(root1.val==root2.val)
+            if(judge(root1,root2))
+                return true;
+        return HasSubtree(root1.left,root2)||HasSubtree(root1.right,root2);
+    }
+
+
+//    *********************15**********************
+//    操作给定的二叉树，将其变换为源二叉树的镜像。
+    public void Mirror(TreeNode root) {
+        if(root==null) return;
+        TreeNode temp=root.left;
+        root.left=root.right;
+        root.right=temp;
+        Mirror(root.left);
+        Mirror(root.right);
+    }
+
+//    *********************16**********************
+//    输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字,
+//    例如，如果输入如下4 X 4矩阵： 1 2 3 4 5 6 7 8 9 10 11
+//    12 13 14 15 16 则依次打印出数字1,2,3,4,8,12,16,15
+//    14,13,9,5,6,7,11,10。
+    public ArrayList<Integer> printMatrix(int [][] matrix) {
+        ArrayList<Integer> list=new ArrayList<>();
+        if(matrix==null||matrix.length==0||matrix[0].length==0)
+        {
+            return list;
+        }
+        int up=0;
+        int down=matrix.length-1;
+        int left=0;
+        int right=matrix[0].length-1;
+        while(true)
+        {
+            for(int fromLeftToRight=left;fromLeftToRight<=right;fromLeftToRight++)
+            {
+                list.add(matrix[up][fromLeftToRight]);
+            }
+            up++;
+            if(up>down){
+                break;
+            }
+
+            for(int fromUpToDown=up;fromUpToDown<=down;fromUpToDown++)
+            {
+                list.add(matrix[fromUpToDown][right]);
+            }
+            right--;
+            if(right<left){
+                break;
+            }
+
+            for(int fromRightToLeft=right;fromRightToLeft>=left;fromRightToLeft--){
+                list.add(matrix[down][fromRightToLeft]);
+            }
+            down--;
+            if(up>down)
+            {
+                break;
+            }
+
+            for(int fromDownToUp=down;fromDownToUp>=up;fromDownToUp--){
+                list.add(matrix[fromDownToUp][left]);
+            }
+            left++;
+            if(left>right){
+                break;
+            }
+        }
+        return list;
+    }
+
+//    ********************17***********************
+//    定义栈的数据结构，请在该类型中实现一个能够得到栈中
+//    所含最小元素的min函数（时间复杂度应为O（1））。
+    private static Stack<Integer> stack=new Stack<Integer>();
+    private static Integer minElement=Integer.MAX_VALUE;
+    public void push17(int node) {
+        if(stack.empty()){
+            minElement=node;
+            stack.push(node);
+        }
+        else
+        {
+            if(node<minElement){
+                stack.push(minElement);
+                minElement=node;
+            }
+            stack.push(node);
+        }
+    }
+
+    public void pop17() {
+        if(stack.size()<1) return;
+        if(stack.peek()==minElement)
+        {
+            if(stack.size()>1){
+                stack.pop();
+                minElement=stack.peek();
+            }
+            else
+            {
+                minElement=Integer.MAX_VALUE;
+            }
+        }
+        stack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int min() {
+        return minElement;
+    }
+
+//    ********************17***********************
+//    输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。
+//    假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是
+//    该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。
+//    （注意：这两个序列的长度是相等的）
+    public boolean IsPopOrder(int [] pushA,int [] popA) {
+        Stack<Integer> stack=new Stack<>();
+        if(pushA.length<1||popA.length<1||popA.length!=popA.length)
+        {
+            return false;
+        }
+        int j=0;
+        for(int i=0;i<pushA.length;i++)
+        {
+            stack.push(pushA[i]);
+            while(stack.size()!=0&&stack.peek()==popA[j]){
+                stack.pop();
+                j++;
+            }
+        }
+        if(stack.size()>0) return false;
+        else return true;
     }
 }

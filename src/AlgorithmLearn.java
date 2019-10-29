@@ -1,10 +1,27 @@
 import com.sun.xml.internal.fastinfoset.algorithm.IntEncodingAlgorithm;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
+import java.rmi.MarshalException;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class AlgorithmLearn {
     public static void main(String[] args) {
         solution sol = new solution();
+        ListNode tem1 = new ListNode(1);
+        ListNode tem2 = new ListNode(2);
+        tem1.next = tem2;
+        ListNode tem3 = new ListNode(3);
+        tem2.next = tem3;
+        ListNode tem4 = new ListNode(4);
+        tem3.next = tem4;
+
+        ListNode temp1 = new ListNode(2);
+        ListNode temp2 = new ListNode(4);
+        temp1.next = temp2;
+        ListNode temp3 = new ListNode(6);
+        temp2.next = temp3;
+        ListNode temp4 = new ListNode(8);
+        temp3.next = temp4;
 //        ****************1****************
 //        Scanner input=new Scanner(System.in);
 //        int target=input.nextInt();
@@ -76,68 +93,56 @@ public class AlgorithmLearn {
 //    输入一个整数数组，实现一个函数来调整该数组中数字的顺序，
 //    使得所有的奇数位于数组的前半部分，所有的偶数位于数组的
 //    后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
-        Scanner input=new Scanner(System.in);
-        int[] array=new int[6];
-        int tem=6;
-        System.out.println("输入下一个数字：");
-        for(int i=0;i<tem;i++)
-        {
-            array[i]=input.nextInt();
-            System.out.println("输入下一个数字：");
-        }
-
-        sol.reOrderArray(array);
-    }
+//        Scanner input=new Scanner(System.in);
+//        int[] array=new int[6];
+//        int tem=6;
+//        System.out.println("输入下一个数字：");
+//        for(int i=0;i<tem;i++)
+//        {
+//            array[i]=input.nextInt();
+//            System.out.println("输入下一个数字：");
+//        }
+//
+//        sol.reOrderArray(array);
+//    }
 
 //    *********************13**********************
 //    输入一个链表，输出该链表中倒数第k个结点。
-    public class ListNode {
-        int val;
-        ListNode next = null;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
-    public ListNode FindKthToTail(ListNode head,int k){
-        ListNode p=head,q=head;
-        int count=0;
-        for(;p!=null;count++)
-        {
-            if(count>=k)
-                q=q.next;
-            p=p.next;
-        }
-        return count<k?null:q;
-    }
+//    ListNode listNode13;
+//    listNode13 = tem1;
+//    System.out.println(sol.FindKthToTail(listNode13,2).val);
 
 //    *********************14**********************
-//    输入一个链表，反转链表后，输出新链表的表头。
-    public ListNode ReverseList(ListNode head) {
-        ListNode pre,nex,mid;
-        if(head.next==null){
-            return head;
-        }
-        if(head.next.next==null)
-        {
-            ListNode tem=head;
-            head=head.next;
-            head.next=tem;
-            tem.next=null;
-            return head;
-        }
-        nex=head.next.next;
-        pre=head;
-        mid=head.next;
-        while(nex.next!=null)
-        {
-            nex=nex.next;
-            mid=mid.next;
-            pre=pre.next;
-        }
-        nex.next=head;
-        head=nex;
-        mid.next=null;
-        return head;
+//    输入两个单调递增的链表，输出两个链表合成后的链表，
+//    当然我们需要合成后的链表满足单调不减规则。
+
+//        ListNode l13=sol.Merge1(tem1,temp1);
+//        while(l13!=null)
+//        {
+//            System.out.println(l13.val);
+//            l13=l13.next;
+//        }
+
+//    *********************16**********************
+//    输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字,
+//    例如，如果输入如下4 X 4矩阵： 1 2 3 4 5 6 7 8 9 10 11
+//    12 13 14 15 16 则依次打印出数字1,2,3,4,8,12,16,15
+//    14,13,9,5,6,7,11,10。
+//        int[][] matrix={{1,2,3,4,5,6}};
+//        ArrayList<Integer> list=sol.printMatrix(matrix);
+//        for(int i=0;i<list.size();i++)
+//        {
+//            System.out.println(list.get(i));
+//        }
+
+//    ********************17***********************
+//    输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。
+//    假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是
+//    该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。
+//    （注意：这两个序列的长度是相等的）
+
+        int[] pushA={1,2,3,4,5};
+        int[] popA={4,5,3,2,1};
+        System.out.println(sol.IsPopOrder(pushA,popA));
     }
 }

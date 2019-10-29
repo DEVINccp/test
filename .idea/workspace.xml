@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71fc081d-8767-47e7-8d56-747949f4b711" name="Default Changelist" comment="">
+    <list default="true" id="71fc081d-8767-47e7-8d56-747949f4b711" name="Default Changelist" comment="第六次提交">
+      <change afterPath="$PROJECT_DIR$/src/ListNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TreeNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/algorithm/AlgorithmLearn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algorithm/AlgorithmLearn.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/algorithm/solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algorithm/solution.class" afterDir="false" />
@@ -32,7 +34,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ccnl_cloud" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
@@ -94,7 +96,12 @@
       <workItem from="1571814152731" duration="4529000" />
       <workItem from="1571890086377" duration="317000" />
       <workItem from="1571901541064" duration="4431000" />
-      <workItem from="1571921270982" duration="6499000" />
+      <workItem from="1571921270982" duration="7060000" />
+      <workItem from="1571968877809" duration="8140000" />
+      <workItem from="1571996355163" duration="1042000" />
+      <workItem from="1572058663121" duration="684000" />
+      <workItem from="1572267323378" duration="1084000" />
+      <workItem from="1572310981403" duration="10687000" />
     </task>
     <task id="LOCAL-00001" summary="第二次提交">
       <created>1569221333325</created>
@@ -117,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571890385969</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="第六次提交">
+      <created>1571929701570</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571929701570</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +156,7 @@
     <MESSAGE value="第二次提交" />
     <MESSAGE value="第四次提交" />
     <MESSAGE value="第五次提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="第五次提交" />
+    <MESSAGE value="第六次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="第六次提交" />
   </component>
 </project>
