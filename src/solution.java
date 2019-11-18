@@ -1,8 +1,6 @@
 import sun.reflect.generics.tree.Tree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 public class solution {
 //    ****************1****************
@@ -62,13 +60,6 @@ public class solution {
 //    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。
 //    假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
 //    例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
-
-    public class TreeNode{
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {val=x;}
-    }
 
     public TreeNode reConstructBinaryTree(int[] pre,int[] in) {
         if (pre.length == 0 || in.length == 0) {
@@ -514,5 +505,38 @@ public class solution {
         }
         if(stack.size()>0) return false;
         else return true;
+    }
+
+//    ********************18***********************
+//    从上往下打印出二叉树的每个节点，同层节点从左至右打印。
+    public ArrayList<Integer> PrintFromTopToBottom(TreeNode root){
+        Queue<TreeNode> queue=new LinkedList<TreeNode>();
+        ArrayList<Integer> arrayList=new ArrayList<Integer>();
+        if(root==null||(root.right==null&&root.left==null)) return arrayList;
+        queue.add(root);
+        while(!queue.isEmpty()){
+            if(queue.peek().left!=null) queue.add(queue.peek().left);
+            if(queue.peek().right!=null) queue.add(queue.peek().right);
+            arrayList.add(queue.peek().val);
+            queue.poll();
+        }
+        return arrayList;
+    }
+
+//    ********************19***********************
+//    输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
+//    如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。
+    public boolean isBST(int[] seq,int start,int end){
+        if(start>=end) return true;
+        int split=start;
+        for(;seq[split]<seq[end]&&split<end;split++);
+        for(int i=split;i<end;i++){
+            if(seq[i]<seq[end]) return false;
+         }
+        return isBST(seq,start,split-1)&&isBST(seq,split,end-1);
+    }
+    public boolean VerifySequenceOfBST(int [] sequence){
+        if(sequence==null||sequence.length==0) return false;
+        return isBST(sequence,0,sequence.length-1);
     }
 }

@@ -22,6 +22,20 @@ public class AlgorithmLearn {
         temp2.next = temp3;
         ListNode temp4 = new ListNode(8);
         temp3.next = temp4;
+
+        TreeNode treenode1=new TreeNode(1);
+        TreeNode treenode2=new TreeNode(3);
+        TreeNode treenode3=new TreeNode(2);
+        treenode1.left=treenode2;
+        treenode1.right=treenode3;
+        TreeNode treenode4=new TreeNode(4);
+        TreeNode treenode5=new TreeNode(5);
+        TreeNode treenode6=new TreeNode(6);
+        TreeNode treenode7=new TreeNode(7);
+        treenode2.left=treenode4;
+        treenode2.right=treenode5;
+        treenode3.left=treenode6;
+        treenode3.right=treenode7;
 //        ****************1****************
 //        Scanner input=new Scanner(System.in);
 //        int target=input.nextInt();
@@ -141,8 +155,22 @@ public class AlgorithmLearn {
 //    该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。
 //    （注意：这两个序列的长度是相等的）
 
-        int[] pushA={1,2,3,4,5};
-        int[] popA={4,5,3,2,1};
-        System.out.println(sol.IsPopOrder(pushA,popA));
+//        int[] pushA={1,2,3,4,5};
+//        int[] popA={4,5,3,2,1};
+//        System.out.println(sol.IsPopOrder(pushA,popA));
+
+//    ********************18***********************
+//    从上往下打印出二叉树的每个节点，同层节点从左至右打印。
+//        ArrayList<Integer> arrayList=sol.PrintFromTopToBottom(treenode1);
+//        for(int i=0;i<arrayList.size();i++)
+//        {
+//            System.out.println(arrayList.get(i));
+//        }
+
+//    ********************19***********************
+//    输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
+//    如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。
+        int[] sequence={7,4,6,5};
+        System.out.println(sol.VerifySequenceOfBST(sequence));
     }
 }
